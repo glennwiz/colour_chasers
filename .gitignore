@@ -13,6 +13,9 @@
 *.userosscache
 *.sln.docstates
 
+#we realy should have the template exlude dll files
+*.dll
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
