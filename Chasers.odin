@@ -21,5 +21,37 @@ Pixel :: struct{
 pixel_array := make([dynamic]^Pixel)
 
 main :: proc(){
-    fmt.println("here we go boys, hold on to your seats")   
+    fmt.println("the beginning")   
+
+    pixel_red := new(Pixel)
+    pixel_red.loc_x = 100
+    pixel_red.loc_y = 100
+    pixel_red.heigth = pixel_size
+    pixel_red.width = pixel_size
+    pixel_red.color = "red"
+ 
+    
+    pixel_blue := new(Pixel)
+    pixel_blue.loc_x = 200
+    pixel_blue.loc_y = 200
+    pixel_blue.heigth = pixel_size
+    pixel_blue.width = pixel_size
+    pixel_blue.color = "blue"
+
+    append(&pixel_array, pixel_red)
+    append(&pixel_array, pixel_blue)
+
+    // print the memory address of the pixel array
+    fmt.println(&pixel_array)
+    fmt.println("how many mem objects in array:", len(pixel_array))
+    
+    // print the memory address of the 2 pixels
+    fmt.println("Red Pixel mem adress:" , &pixel_array[0])
+    fmt.println("Blue Pixel mem adress:", &pixel_array[1])
+    
+    // and print the object values
+    fmt.println("Red pixel obj:",  pixel_array[0])
+    fmt.println("Blue pixel obj:", pixel_array[1])
+
+
 }
