@@ -101,46 +101,5 @@ main :: proc(){
     fmt.println("Blue pixel obj:", pixel_array[1])
 
 
-    dt := 0.0
-    //game loop
-    for {
-        event: sdl2.Event
-		for sdl2.PollEvent(&event) {
-			#partial switch event.type {
-			case .QUIT:
-				return
-			case .KEYDOWN:
-				if event.key.keysym.scancode == sdl2.SCANCODE_ESCAPE {
-					return
-				}
-			}
-		}
-
-		time := get_time()
-		dt += time - game.time
-
-		game.keyboard = sdl2.GetKeyboardStateAsSlice()
-		game.time = time
-
-        for dt >= ticktime {
-            //TODO: Need a debug counter to do the modulo 10
-            if int(game.time) % 10 == 0 
-            {
-                fmt.println("time:", game.time)
-
-                for pixel, i in pixel_array 
-                {
-                    fmt.println("pixel", pixel.color, "at", pixel.loc_x, pixel.loc_y)
-                    fmt.println("pixel obj:", pixel^)
-                    fmt.println("pixel obj:", pixel)
-                    fmt.println("index:", i)
-                    fmt.println("mem adress:", &pixel_array[i])  
-                }            
-            }
-    }
-}
-}
-
-get_time :: proc() -> f64 {
-	return f64(sdl2.GetPerformanceCounter()) * 1000 / f64(sdl2.GetPerformanceFrequency())
+    fmt.println("the end")
 }
