@@ -65,7 +65,7 @@ main :: proc(){
 
 	game := Game {
 		renderer = renderer,
-		time     = get_time(),
+		time     = 0.0,
 		dt       = ticktime,
 		pixels = make([dynamic]^Pixel),
 	}
